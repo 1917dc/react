@@ -1,28 +1,32 @@
 import { useState } from 'react';
-import List from './components/List';
 
 function App() {
-  const [list, setList] = useState([])
+    const [items, setItems] = useState([])
+    const [inputValue, setInputValue] = useState('');
 
-  function handleSubmit(e) {
-    e.preventDefault();
+    const addItem = () => {
+      if(inputValue.trim() === '') return;
+      setItems([...items, inputValue]);
+      setInputValue('');
+    }
 
-    const form = e.target;
-    const formData = new formData(form);
-
-    const formJson = Object.fromEntries(formData.entries());
-    console.log(formJson);
-  }
-
-  return (
+    return (
     <div>
-      <form method="post" onSubmit={handleSubmit}>
-        <input placeholder="Nome da task"></input>
-        <button>Adicionar</button>
-      </form>
-      <List list={list}/>
+        <input
+            placeholder="Task"
+            type="text"
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
+        />
+        <button onClick={addItem}>Add item</button>
+        <h1>To Do:</h1>
+        <ul>
+            {items.map((item) => (
+                <li>{ item }</li>
+            ))}
+        </ul>
     </div>
-  );
+    );
 }
 
 export default App;

@@ -1,15 +1,17 @@
 function Clicker({ onIncrement }){
-    let click = 0;
+    let clicks = 0;
     const handleClick = () => {
-        click++;
-        if(click == 9){
-            onIncrement();            
+        clicks++;
+
+        if(clicks === 9){
+            onIncrement();
         }
     }
 
+
     return(
         <>
-            <button onClick={handleClick}>Clique aqui</button> 
+            <button onClick={handleClick}>Increment</button>
         </>
     );
 }

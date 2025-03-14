@@ -3,7 +3,7 @@ import Counter from "./components/counter/Counter";
 import Clicker from './components/counter/Clicker';
 
 function App() {
-  const [clicks, setCount] = useState(0);
+  const [count, setCount] = useState(0);
 
   const handleIncrement = () => {
     setCount((prevCount) => prevCount + 1)
@@ -12,7 +12,7 @@ function App() {
   return (
     <div class="App">
       <div class="container">
-        <Counter count={clicks}/>
+        <Counter count={count}/>
         <Clicker onIncrement={ handleIncrement }/>
       </div>
     </div>

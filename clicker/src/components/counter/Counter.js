@@ -1,6 +1,6 @@
 function Counter({ count }){
     return(
-        <h1>{ count }</h1>
+        <h1>O contador foi incrementado { count } vezes</h1>
     );
 }
 
